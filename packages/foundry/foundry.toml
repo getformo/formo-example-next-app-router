@@ -6,10 +6,11 @@ fs_permissions = [{ access = "read-write", path = "./"}]
 
 [rpc_endpoints]
 baseSepolia = "https://sepolia.base.org"
-localhost = "http://127.0.0.1:8545"
+optimismSepolia = "https://sepolia.optimism.io"
 
 [etherscan]
 baseSepolia = { key = "837IE7VQ7VADIRAN139YC9ZG8ID8UFJR2F" }
+optimismSepolia = { key = "F49JQVIC5YDE15NHF55RMH31HNCV8BPIA4" }
 
 [fmt]
 multiline_func_header = "params_first"
