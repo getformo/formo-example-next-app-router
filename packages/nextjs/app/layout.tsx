@@ -1,5 +1,5 @@
+import { AnalyticsProvider } from "./analytics";
 import "@rainbow-me/rainbowkit/styles.css";
-import { AnalyticsWrapper } from "~~/components/AnalyticsWrapper";
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
 import "~~/styles/globals.css";
@@ -10,15 +10,23 @@ export const metadata = getMetadata({
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 
+const API_KEY = "YOUR_API_KEY";
+const PROJECT_ID = "YOUR_PROJECT_ID";
+
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
+  if (!API_KEY || !PROJECT_ID) {
+    console.error("API key or Project ID is missing");
+    return null;
+  }
+
   return (
     <html suppressHydrationWarning>
       <body>
-        <AnalyticsWrapper>
+        <AnalyticsProvider apiKey={API_KEY} projectId={PROJECT_ID}>
           <ThemeProvider enableSystem>
             <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
           </ThemeProvider>
-        </AnalyticsWrapper>
+        </AnalyticsProvider>
       </body>
     </html>
   );
