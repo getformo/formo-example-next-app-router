@@ -10,8 +10,8 @@ export const metadata = getMetadata({
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 
-const API_KEY = "YOUR_API_KEY";
-const PROJECT_ID = "YOUR_PROJECT_ID";
+const API_KEY = process.env.FORMO_ANALYTICS_API_KEY;
+const PROJECT_ID = process.env.FORMO_ANALYTICS_PROJECT_ID;
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   if (!API_KEY || !PROJECT_ID) {
