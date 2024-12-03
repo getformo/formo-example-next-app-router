@@ -716,6 +716,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@formo/analytics@npm:^1.12.0-alpha.3":
+  version: 1.12.0-alpha.3
+  resolution: "@formo/analytics@npm:1.12.0-alpha.3"
+  dependencies:
+    "@highlight-run/react": ^7.0.2
+    axios: ^1.7.7
+    highlight.run: ^9.5.2
+    tsc: ^2.0.4
+  peerDependencies:
+    "@types/react": ">=16.14.34"
+    react: ">=16.14.0"
+  checksum: 0ab6fa1cf9818d70ab5c48d384f5c93cf7f4cb881207597d206996ca78be09114b8d24fa41b93feda8fb96c74399276187e7aca6482d3cd9927e18b8b16cd687
+  languageName: node
+  linkType: hard
+
 "@formo/analytics@npm:^1.8.0":
   version: 1.11.4
   resolution: "@formo/analytics@npm:1.11.4"
@@ -728,21 +743,6 @@ __metadata:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
   checksum: 6fd245e9bf9cede13817fb21032365b9ebc5299987629cf90d18b85e3b5e24feefca0f7bf43dc9cc191ced68a85a2083f61485b0757ddbfd40af2d378b73867e
-  languageName: node
-  linkType: hard
-
-"@formo/analytics@npm:^2.0.0-alpha.6":
-  version: 2.0.0-alpha.6
-  resolution: "@formo/analytics@npm:2.0.0-alpha.6"
-  dependencies:
-    "@highlight-run/react": ^7.0.2
-    axios: ^1.7.7
-    highlight.run: ^9.5.2
-    tsc: ^2.0.4
-  peerDependencies:
-    "@types/react": ">=16.14.34"
-    react: ">=16.14.0"
-  checksum: 734f710116382301bcbebb03397823ff197ad861205a934d2950cd925def93c1ad89b45074a574bc98de623caaaffb8397a000c47f70577738c0a97834b7c2fc
   languageName: node
   linkType: hard
 
@@ -1767,7 +1767,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
-    "@formo/analytics": ^2.0.0-alpha.6
+    "@formo/analytics": ^1.12.0-alpha.3
     "@heroicons/react": ~2.1.5
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ~5.28.6
