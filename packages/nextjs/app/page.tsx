@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     const track = async () => {
       try {
         console.log("Tracking custom event...");
-        analytics.track("custom_event", { key: "value" });
+        analytics?.track("custom_event", { key: "value" });
       } catch (error) {
         console.error("Failed to track custom event", error);
       }
