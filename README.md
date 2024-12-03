@@ -1,11 +1,9 @@
-# 🏗 Formo Analytics Example
+# 🏗 Formo Analytics Next.js Example
 
-<h4 align="center">
-  <a href="https://help.formo.so">Documentation</a> |
-  <a href="https://formo.so">Website</a>
-</h4>
+[Documentation](https://help.formo.so) |
+[Website](https://formo.so)
 
-This is a working example of a dapp using Formo Analytics.
+This is a working example of a Next.js app using Formo Analytics.
 
 -----
 
