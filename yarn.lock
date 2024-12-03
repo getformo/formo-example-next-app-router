@@ -716,9 +716,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@npm:^1.11.5":
-  version: 1.11.5
-  resolution: "@formo/analytics@npm:1.11.5"
+"@formo/analytics@npm:^1.11.6":
+  version: 1.11.6
+  resolution: "@formo/analytics@npm:1.11.6"
   dependencies:
     "@highlight-run/react": ^7.0.2
     axios: ^1.7.7
@@ -727,7 +727,7 @@ __metadata:
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
-  checksum: 32a9115f8df5303924f0ebc78e7012e9cabdbdea6f1a9ace0b23dd62c7a90c74a63e7a8d4f9589e612b0e871624f6ef8deba43917e0819e126544f92908deaad
+  checksum: 30810a115dfd85df4931e27f73e54ed00ec1be88568d215bdf70f6e533c65e4abf02badb059de824c4b4c81385e6e4f89d767d4d9eb35c306fe5d655506b24fc
   languageName: node
   linkType: hard
 
@@ -1767,7 +1767,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
-    "@formo/analytics": ^1.11.5
+    "@formo/analytics": ^1.11.6
     "@heroicons/react": ~2.1.5
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ~5.28.6
