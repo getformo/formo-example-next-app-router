@@ -20,4 +20,5 @@ node_modules
 .idea
 
 # cli
-dist
+dist# Environment configuration
+**/.env

@@ -1,13 +1,29 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
+import { useFormoAnalytics } from "@formo/analytics";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
+  const analytics = useFormoAnalytics();
   const { address: connectedAddress } = useAccount();
+
+  useEffect(() => {
+    const track = async () => {
+      try {
+        console.log("Tracking custom event...");
+        analytics?.track("custom_event", { key: "value" });
+      } catch (error) {
+        console.error("Failed to track custom event", error);
+      }
+    };
+
+    track();
+  }, [analytics]);
 
   return (
     <>
