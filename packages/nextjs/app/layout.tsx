@@ -11,18 +11,17 @@ export const metadata = getMetadata({
 });
 
 const API_KEY = process.env.FORMO_ANALYTICS_API_KEY;
-const PROJECT_ID = process.env.FORMO_ANALYTICS_PROJECT_ID;
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
-  if (!API_KEY || !PROJECT_ID) {
-    console.error("API key or Project ID is missing");
+  if (!API_KEY) {
+    console.error("API key is missing! Create a .env file based on .env.example and add your API key.");
     return null;
   }
 
   return (
     <html suppressHydrationWarning>
       <body>
-        <AnalyticsProvider apiKey={API_KEY} projectId={PROJECT_ID}>
+        <AnalyticsProvider apiKey={API_KEY} options={{}}>
           <ThemeProvider enableSystem>
             <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
           </ThemeProvider>
