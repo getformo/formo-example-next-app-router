@@ -6,6 +6,7 @@ import { useFormoAnalytics } from "@formo/analytics";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { SignMessage } from "~~/components/SignMessage";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
@@ -54,6 +55,10 @@ const Home: NextPage = () => {
               packages/hardhat/contracts
             </code>
           </p>
+        </div>
+
+        <div className="w-7/12">
+          <SignMessage />
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
