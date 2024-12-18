@@ -1,21 +1,11 @@
 "use client";
 
 import React, { FC } from "react";
-import { FormoAnalyticsProvider, Options } from "@formo/analytics";
-
-type FormoAnalyticsProviderProps = {
-  apiKey: string;
-  options: Options;
-  children: React.ReactNode;
-};
+import { FormoAnalyticsProvider, FormoAnalyticsProviderProps } from "@formo/analytics";
 
 // The provider component
-export const AnalyticsProvider: FC<FormoAnalyticsProviderProps> = ({ apiKey, options, children }) => {
-  return (
-    <FormoAnalyticsProvider apiKey={apiKey} options={options}>
-      {children}
-    </FormoAnalyticsProvider>
-  );
+export const AnalyticsProvider: FC<FormoAnalyticsProviderProps> = ({ apiKey, children }) => {
+  return <FormoAnalyticsProvider apiKey={apiKey}>{children}</FormoAnalyticsProvider>;
 };
 
 export default AnalyticsProvider;
