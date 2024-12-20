@@ -10,12 +10,11 @@ export const metadata = getMetadata({
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 
-const API_KEY = process.env.FORMO_ANALYTICS_API_KEY;
+const API_KEY = "";
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   if (!API_KEY) {
-    console.error("API key is missing! Create a .env file based on .env.example and add your API key.");
-    return null;
+    console.log("API key is missing! Create a .env file based on .env.example and add your API key.");
   }
 
   return (

@@ -5,10 +5,12 @@ import { FormoAnalyticsProvider, FormoAnalyticsProviderProps } from "@formo/anal
 
 // The provider component
 export const AnalyticsProvider: FC<FormoAnalyticsProviderProps> = ({ apiKey, options, children }) => {
-  return (
+  return apiKey ? (
     <FormoAnalyticsProvider apiKey={apiKey} options={options}>
       {children}
     </FormoAnalyticsProvider>
+  ) : (
+    children
   );
 };
 
