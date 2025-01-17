@@ -4,38 +4,51 @@ import { useSignTypedData } from "wagmi";
 
 export function SignTypedData() {
   const [recoveredAddress, setRecoveredAddress] = React.useState<string>();
+  const [messageContent, setMessageContent] = React.useState("");
 
-  // Define the typed data structure
-  const domain = {
-    name: "Example DApp",
-    version: "1",
-    chainId: 84532,
-    verifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
-  } as const;
+  // Memoize the domain object
+  const domain = React.useMemo(
+    () =>
+      ({
+        name: "Example DApp",
+        version: "1",
+        chainId: 84532,
+        verifyingContract: "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
+      } as const),
+    [],
+  );
 
-  const types = {
-    Person: [
-      { name: "name", type: "string" },
-      { name: "wallet", type: "address" },
-    ],
-    Mail: [
-      { name: "from", type: "Person" },
-      { name: "to", type: "Person" },
-      { name: "content", type: "string" },
-    ],
-  } as const;
+  // Memoize the types object
+  const types = React.useMemo(
+    () =>
+      ({
+        Person: [
+          { name: "name", type: "string" },
+          { name: "wallet", type: "address" },
+        ],
+        Mail: [
+          { name: "from", type: "Person" },
+          { name: "to", type: "Person" },
+          { name: "content", type: "string" },
+        ],
+      } as const),
+    [],
+  );
 
-  const message = {
-    from: {
-      name: "Alice",
-      wallet: "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
-    },
-    to: {
-      name: "Bob",
-      wallet: "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
-    },
-    content: "",
-  };
+  const message = React.useMemo(
+    () => ({
+      from: {
+        name: "Alice",
+        wallet: "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
+      },
+      to: {
+        name: "Bob",
+        wallet: "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
+      },
+      content: messageContent,
+    }),
+    [messageContent],
+  );
 
   const { data: signature, error, status, signTypedData } = useSignTypedData();
 
@@ -58,20 +71,23 @@ export function SignTypedData() {
     };
 
     recoverAddress();
-  }, [signature, message.content]);
+  }, [signature, message.content, domain, types, message]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
     const content = formData.get("content") as string;
     if (content) {
-      message.content = content;
+      setMessageContent(content);
       try {
         await signTypedData({
           domain,
           types,
           primaryType: "Mail",
-          message,
+          message: {
+            ...message,
+            content,
+          },
         });
       } catch (err) {
         console.error("Error signing typed data:", err);
