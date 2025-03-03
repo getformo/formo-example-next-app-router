@@ -4,9 +4,9 @@ import React, { FC } from "react";
 import { FormoAnalyticsProvider, FormoAnalyticsProviderProps } from "@formo/analytics";
 
 // The provider component
-export const AnalyticsProvider: FC<FormoAnalyticsProviderProps> = ({ apiKey, options, children }) => {
+export const AnalyticsProvider: FC<FormoAnalyticsProviderProps> = ({ writeKey, options, children, disabled }) => {
   return (
-    <FormoAnalyticsProvider apiKey={apiKey} options={options}>
+    <FormoAnalyticsProvider writeKey={writeKey} options={options} disabled={disabled}>
       {children}
     </FormoAnalyticsProvider>
   );
