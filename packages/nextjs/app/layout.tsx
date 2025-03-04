@@ -10,18 +10,19 @@ export const metadata = getMetadata({
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 
-const API_KEY = process.env.FORMO_ANALYTICS_API_KEY;
+const API_KEY = process.env.FORMO_ANALYTICS_API_KEY || "";
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
-  if (!API_KEY) {
-    console.error("API key is missing! Create a .env file based on .env.example and add your API key.");
-    return null;
-  }
-
   return (
     <html suppressHydrationWarning>
       <body>
-        <AnalyticsProvider apiKey={API_KEY} options={{}}>
+        <AnalyticsProvider
+          writeKey={API_KEY}
+          options={{
+            trackLocalhost: true,
+            flushInterval: 1000 * 10, // 10 secs
+          }}
+        >
           <ThemeProvider enableSystem>
             <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
           </ThemeProvider>
