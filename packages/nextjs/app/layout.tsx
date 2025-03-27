@@ -21,6 +21,10 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
           options={{
             trackLocalhost: true,
             flushInterval: 1000 * 10, // 10 secs
+            logger: {
+              enabled: true,
+              levels: ["error", "warn", "info"],
+            },
           }}
         >
           <ThemeProvider enableSystem>
