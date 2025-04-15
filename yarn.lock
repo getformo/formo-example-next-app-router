@@ -1087,17 +1087,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@npm:^1.15.2":
-  version: 1.15.2
-  resolution: "@formo/analytics@npm:1.15.2"
+"@formo/analytics@npm:^1.16.3":
+  version: 1.16.3
+  resolution: "@formo/analytics@npm:1.16.3"
   dependencies:
+    ethereum-cryptography: ^3.1.0
     fetch-retry: ^6.0.0
     is-network-error: ^1.1.0
     mipd: ^0.0.7
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
-  checksum: a138af4b3f1b3d7958a627db9084b4225fcb312915036eb8859d2001fd5ab82bfc1e14099a4dc214f7f7ab8aed4d74acee6779963009fc1375791eee8dfd137f
+  checksum: 7c4ebfe12d87f258427c4cd5726121f447fc5ebc86bcc162320b0aea430ce353cc10acf3deef96f5d9675a3f0108e538222ddd615988a5d9ea0ce8d39319c3ea
   languageName: node
   linkType: hard
 
@@ -1723,7 +1724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/ciphers@npm:^1.0.0":
+"@noble/ciphers@npm:1.2.1, @noble/ciphers@npm:^1.0.0":
   version: 1.2.1
   resolution: "@noble/ciphers@npm:1.2.1"
   checksum: 843bd81a2b17cac7045c4ecc511c1e88f42e51f5df2635efdbd30fd318afe78d88c732772773a8412d5057560d23746a6aea6dd255af1a49fb17928ef23f6c22
@@ -2035,7 +2036,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
-    "@formo/analytics": ^1.15.2
+    "@formo/analytics": ^1.16.3
     "@heroicons/react": ~2.1.5
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ~5.28.6
@@ -5985,6 +5986,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ethereum-cryptography@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "ethereum-cryptography@npm:3.1.0"
+  dependencies:
+    "@noble/ciphers": 1.2.1
+    "@noble/curves": 1.8.1
+    "@noble/hashes": 1.7.1
+    "@scure/bip32": 1.6.2
+    "@scure/bip39": 1.5.4
+  checksum: eb400932e0403503e9c6e22ba773ac10391f46616e0bff559c2fcf82b646ff50eff956ee73742166d439394266249c0936d9f5d25943a473a028546bcd339829
+  languageName: node
+  linkType: hard
+
 "ethers@npm:~5.7.1":
   version: 5.7.2
   resolution: "ethers@npm:5.7.2"
@@ -9885,7 +9899,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@formo/analytics": ^1.15.2
+    "@formo/analytics": ^1.16.3
     husky: ~8.0.3
     lint-staged: ~13.2.2
   languageName: unknown
