@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { useFormo } from "@formo/analytics";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
@@ -10,6 +12,50 @@ import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
+  const analytics = useFormo();
+
+  const [isValidJson, setIsValidJson] = useState(true);
+  const [trackResult, setTrackResult] = useState<string | null>(null);
+  const [trackError, setTrackError] = useState<string | null>(null);
+
+  const validateJsonPayload = (payload: string) => {
+    try {
+      JSON.parse(payload);
+      setIsValidJson(true);
+      return true;
+    } catch (e) {
+      setIsValidJson(false);
+      return false;
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setTrackResult(null);
+    setTrackError(null);
+
+    const formData = new FormData(event.target as HTMLFormElement);
+    const name = formData.get("eventName") as string;
+    const payload = formData.get("eventPayload") as string;
+
+    if (name && payload) {
+      try {
+        if (validateJsonPayload(payload)) {
+          const parsedPayload = JSON.parse(payload);
+          if (analytics) {
+            analytics.track(name, parsedPayload);
+            setTrackResult(`Event "${name}" tracked successfully`);
+          } else {
+            setTrackError("Analytics is not initialized");
+          }
+        } else {
+          setTrackError("Invalid JSON payload format");
+        }
+      } catch (err: any) {
+        setTrackError(err.message || "Error tracking event");
+      }
+    }
+  };
 
   return (
     <>
@@ -24,7 +70,7 @@ const Home: NextPage = () => {
             <Address address={connectedAddress} />
           </div>
 
-          <p className="text-center text-lg">
+          <p className="text-center text-lg mt-8">
             Get started by editing{" "}
             <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
               packages/nextjs/app/page.tsx
@@ -46,8 +92,51 @@ const Home: NextPage = () => {
           <SignMessage />
         </div>
 
-        <div className="w-7/12">
+        <div className="w-7/12 mt-12">
           <SignTypedData />
+        </div>
+
+        <div className="w-7/12 mt-12">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="eventName" className="font-medium">
+                Enter custom event name and payload
+              </label>
+              <input
+                id="eventName"
+                name="eventName"
+                type="text"
+                placeholder="button_clicked"
+                defaultValue="button_clicked"
+                className="w-full p-2 border rounded-md"
+                required
+              />
+              <textarea
+                id="eventPayload"
+                name="eventPayload"
+                placeholder='{"key":"value"}'
+                defaultValue='{"foo":"bar"}'
+                className={`w-full p-2 border rounded-md ${!isValidJson ? "border-red-500" : ""}`}
+                onChange={e => validateJsonPayload(e.target.value)}
+                required
+              />
+              {!isValidJson && <p className="text-sm text-red-500 mt-1">Invalid JSON format</p>}
+            </div>
+
+            <button
+              type="submit"
+              disabled={!isValidJson}
+              className="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 disabled:opacity-50"
+            >
+              Track Custom Event
+            </button>
+
+            {trackResult && (
+              <div className="mt-4 p-3 bg-green-100 text-green-800 rounded-md break-all">{trackResult}</div>
+            )}
+
+            {trackError && <div className="p-4 mt-4 text-red-700 bg-red-100 rounded-md">{trackError}</div>}
+          </form>
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
