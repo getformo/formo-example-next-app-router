@@ -34,6 +34,7 @@
     "verify": "yarn workspace @se-2/foundry verify"
   },
   "devDependencies": {
+    "ansi-regex": "^6.1.0",
     "husky": "~8.0.3",
     "lint-staged": "~13.2.2"
   },
@@ -42,6 +43,6 @@
     "node": ">=18.18.0"
   },
   "dependencies": {
-    "@formo/analytics": "^1.15.2"
+    "@formo/analytics": "^1.16.3"
   }
 }
