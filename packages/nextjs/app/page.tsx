@@ -18,15 +18,14 @@ const Home: NextPage = () => {
   const [trackResult, setTrackResult] = useState<string | null>(null);
   const [trackError, setTrackError] = useState<string | null>(null);
 
-  const validateJsonPayload = (payload: string) => {
+  const validateJsonPayload = (payload: string): object | null => {
     try {
-      JSON.parse(payload);
+      const parsedPayload = JSON.parse(payload);
       setIsValidJson(true);
-      return true;
+      return parsedPayload;
     } catch (e) {
       setIsValidJson(false);
-      return false;
-    }
+      return null;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
