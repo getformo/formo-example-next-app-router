@@ -10,14 +10,14 @@ export const metadata = getMetadata({
   description: "Built with 🏗 Scaffold-ETH 2",
 });
 
-const API_KEY = process.env.FORMO_ANALYTICS_API_KEY || "";
+const WRITE_KEY = process.env.FORMO_ANALYTICS_WRITE_KEY || "";
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   return (
     <html suppressHydrationWarning>
       <body>
         <AnalyticsProvider
-          writeKey={API_KEY}
+          writeKey={WRITE_KEY}
           options={{
             trackLocalhost: true,
             flushInterval: 1000 * 10, // 10 secs
