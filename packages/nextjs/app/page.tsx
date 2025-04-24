@@ -10,7 +10,7 @@ import { SignMessage } from "~~/components/SignMessage";
 import { SignTypedData } from "~~/components/SignTypedData";
 import { Address } from "~~/components/scaffold-eth";
 
-const Home: NextPage = () => {
+const Home: NextPage = (): JSX.Element => {
   const { address: connectedAddress } = useAccount();
   const analytics = useFormo();
 
@@ -26,6 +26,7 @@ const Home: NextPage = () => {
     } catch (e) {
       setIsValidJson(false);
       return null;
+    }
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +43,7 @@ const Home: NextPage = () => {
         if (validateJsonPayload(payload)) {
           const parsedPayload = JSON.parse(payload);
           if (analytics) {
-            analytics.track(name, parsedPayload);
+            analytics.track(name as any, parsedPayload);
             setTrackResult(`Event "${name}" tracked successfully`);
           } else {
             setTrackError("Analytics is not initialized");
