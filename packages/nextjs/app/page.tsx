@@ -12,7 +12,7 @@ import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = (): JSX.Element => {
   const { address: connectedAddress } = useAccount();
-  const analytics = useFormo();
+  const analytics = useFormo() as any;
 
   const [isValidJson, setIsValidJson] = useState(true);
   const [trackResult, setTrackResult] = useState<string | null>(null);
@@ -35,21 +35,16 @@ const Home: NextPage = (): JSX.Element => {
     setTrackError(null);
 
     const formData = new FormData(event.target as HTMLFormElement);
-    const name = formData.get("eventName") as string;
-    const payload = formData.get("eventPayload") as string;
+    const eventName = formData.get("eventName") as string;
+    const properties = formData.get("eventPayload") as string;
 
-    if (name && payload) {
+    if (eventName && properties) {
       try {
-        if (validateJsonPayload(payload)) {
-          const parsedPayload = JSON.parse(payload);
-          if (analytics) {
-            analytics.track(name as any, parsedPayload);
-            setTrackResult(`Event "${name}" tracked successfully`);
-          } else {
-            setTrackError("Analytics is not initialized");
-          }
+        if (validateJsonPayload(properties)) {
+          analytics.track(eventName, JSON.parse(properties));
+          setTrackResult(`Event "${eventName}" tracked`);
         } else {
-          setTrackError("Invalid JSON payload format");
+          setTrackError("Invalid JSON payload");
         }
       } catch (err: any) {
         setTrackError(err.message || "Error tracking event");
