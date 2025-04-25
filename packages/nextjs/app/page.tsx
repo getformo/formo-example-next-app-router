@@ -41,7 +41,8 @@ const Home: NextPage = (): JSX.Element => {
     if (eventName && properties) {
       try {
         if (validateJsonPayload(properties)) {
-          analytics.track(eventName, JSON.parse(properties));
+          const parsedPayload = JSON.parse(properties);
+          analytics.track(eventName, parsedPayload.properties);
           setTrackResult(`Event "${eventName}" tracked`);
         } else {
           setTrackError("Invalid JSON payload");
@@ -109,8 +110,8 @@ const Home: NextPage = (): JSX.Element => {
               <textarea
                 id="eventPayload"
                 name="eventPayload"
-                placeholder='{"key":"value"}'
-                defaultValue='{"foo":"bar"}'
+                placeholder='{"type": "track", "event": "Event Name", "properties": {}}'
+                defaultValue='{"type": "track", "event": "Liquidity Deposited", "properties": {"pool": "LINK/ETH", "revenue": "20.5", "currency": "USD", "points": "150.52"}}'
                 className={`w-full p-2 border rounded-md ${!isValidJson ? "border-red-500" : ""}`}
                 onChange={e => validateJsonPayload(e.target.value)}
                 required
