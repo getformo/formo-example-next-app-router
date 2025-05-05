@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useFormo } from "@formo/analytics";
 import type { NextPage } from "next";
@@ -11,8 +11,14 @@ import { SignTypedData } from "~~/components/SignTypedData";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = (): JSX.Element => {
-  const { address: connectedAddress } = useAccount();
-  const analytics = useFormo() as any;
+  const { address } = useAccount();
+  const analytics = useFormo();
+
+  useEffect(() => {
+    if (address && analytics) {
+      analytics.identify({ address });
+    }
+  }, [address, analytics]);
 
   const [isValidJson, setIsValidJson] = useState(true);
   const [trackResult, setTrackResult] = useState<string | null>(null);
@@ -38,10 +44,10 @@ const Home: NextPage = (): JSX.Element => {
     const eventName = formData.get("eventName") as string;
     const properties = formData.get("eventProperties") as string;
 
-    if (eventName && properties) {
+    if (eventName && properties && analytics) {
       try {
         if (validateJsonPayload(properties)) {
-          analytics.track(eventName, JSON.parse(properties));
+          analytics.track(eventName as any, JSON.parse(properties));
           setTrackResult(`Event "${eventName}" tracked`);
         } else {
           setTrackError("Invalid JSON payload");
@@ -62,7 +68,7 @@ const Home: NextPage = (): JSX.Element => {
           </h1>
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
             <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
+            <Address address={address} />
           </div>
 
           <p className="text-center text-lg mt-8">
