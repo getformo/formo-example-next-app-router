@@ -47,7 +47,7 @@ const Home: NextPage = (): JSX.Element => {
     if (eventName && properties && analytics) {
       try {
         if (validateJsonPayload(properties)) {
-          analytics.track(eventName as any, JSON.parse(properties));
+          analytics.track(eventName, JSON.parse(properties));
           setTrackResult(`Event "${eventName}" tracked`);
         } else {
           setTrackError("Invalid JSON payload");
