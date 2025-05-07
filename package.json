@@ -43,6 +43,6 @@
     "node": ">=18.18.0"
   },
   "dependencies": {
-    "@formo/analytics": "^1.16.7"
+    "@formo/analytics": "^1.16.10"
   }
 }
