@@ -1085,9 +1085,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@npm:^1.16.12":
-  version: 1.16.12
-  resolution: "@formo/analytics@npm:1.16.12"
+"@formo/analytics@npm:^1.16.19":
+  version: 1.16.19
+  resolution: "@formo/analytics@npm:1.16.19"
   dependencies:
     ethereum-cryptography: ^3.1.0
     fetch-retry: ^6.0.0
@@ -1095,7 +1095,7 @@ __metadata:
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
-  checksum: 7697cd771b64627b2a2a68b4a687e63bdb14181853eccc5fbbb7eb4c55ecd3f2ae541f92455e9292cdbfff7bf6794d3f15c18cfbdac6eab4014c5da3eacdb6a2
+  checksum: 736583b1596540b90f2ba1c077ce7f328ffd9f4e4221a7e9b049a8942be1f4e06abadbb98a142aa913679884e0544de208bd3629c11b7714a592ed4182aee37d
   languageName: node
   linkType: hard
 
@@ -2086,7 +2086,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
-    "@formo/analytics": ^1.16.12
+    "@formo/analytics": ^1.16.19
     "@heroicons/react": ~2.1.5
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ~5.28.6
@@ -9946,7 +9946,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@formo/analytics": ^1.16.12
+    "@formo/analytics": ^1.16.19
     ansi-regex: ^6.1.0
     husky: ~8.0.3
     lint-staged: ~13.2.2
