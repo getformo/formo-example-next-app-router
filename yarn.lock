@@ -1085,17 +1085,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@npm:1.17.8":
-  version: 1.17.8
-  resolution: "@formo/analytics@npm:1.17.8"
+"@formo/analytics@npm:1.16.20":
+  version: 1.16.20
+  resolution: "@formo/analytics@npm:1.16.20"
   dependencies:
-    ethereum-cryptography: 3.2.0
-    fetch-retry: 6.0.0
-    mipd: 0.0.7
+    ethereum-cryptography: ^3.1.0
+    fetch-retry: ^6.0.0
+    mipd: ^0.0.7
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
-  checksum: 0335015d2b9df13fd2e6f52ee22d160bf207218c75099674fd92309b151b10a1c3198c2230fffc202605bb081204e71d7aa4a10dbbc875f7469c2a7f4c7b8b16
+  checksum: 397025f551769bffa6d2b4af21180b25783c974dc948a8ea58713fa5f7e10d5505e85fe881bee4277eac3f1e692e2279a5c4bc2f7a93a3f91e85d22eed4552b5
   languageName: node
   linkType: hard
 
@@ -6444,7 +6444,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethereum-cryptography@npm:3.2.0":
+"ethereum-cryptography@npm:3.2.0, ethereum-cryptography@npm:^3.1.0":
   version: 3.2.0
   resolution: "ethereum-cryptography@npm:3.2.0"
   dependencies:
@@ -6686,7 +6686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fetch-retry@npm:6.0.0":
+"fetch-retry@npm:6.0.0, fetch-retry@npm:^6.0.0":
   version: 6.0.0
   resolution: "fetch-retry@npm:6.0.0"
   checksum: a0352f069fd0db8dc16b5a781a02d2d42df1d7438c85c7959f8f83713d266911ba2fce97389cc490cd633fd791187d8498ac624168543a93c68353226cfdadce
@@ -8606,7 +8606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mipd@npm:0.0.7":
+"mipd@npm:0.0.7, mipd@npm:^0.0.7":
   version: 0.0.7
   resolution: "mipd@npm:0.0.7"
   peerDependencies:
@@ -10435,7 +10435,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@formo/analytics": 1.17.8
+    "@formo/analytics": 1.16.20
     ansi-regex: ^6.1.0
     husky: ~8.0.3
     lint-staged: ~13.2.2
