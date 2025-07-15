@@ -19,7 +19,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
         <AnalyticsProvider
           writeKey={WRITE_KEY}
           options={{
-            trackLocalhost: true,
+            tracking: true,
             flushInterval: 1000 * 10, // 10 secs
             logger: {
               enabled: true,

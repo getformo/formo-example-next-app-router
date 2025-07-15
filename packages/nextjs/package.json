@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "check-types": "tsc --noEmit --incremental",
-    "dev": "next dev",
+    "dev": "next dev -p 3002",
     "format": "prettier --write . '!(node_modules|.next|contracts)/**/*'",
     "lint": "next lint",
     "serve": "next start",
@@ -14,7 +14,6 @@
     "vercel:yolo": "vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true"
   },
   "dependencies": {
-    "@formo/analytics": "^1.16.19",
     "@heroicons/react": "~2.1.5",
     "@rainbow-me/rainbowkit": "2.1.6",
     "@tanstack/react-query": "~5.28.6",
