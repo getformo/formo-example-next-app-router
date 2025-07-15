@@ -31,7 +31,8 @@
     "test": "yarn foundry:test",
     "vercel": "yarn workspace @se-2/nextjs vercel",
     "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
-    "verify": "yarn workspace @se-2/foundry verify"
+    "verify": "yarn workspace @se-2/foundry verify",
+    "build:fe": "yarn workspace @se-2/nextjs build"
   },
   "devDependencies": {
     "ansi-regex": "^6.1.0",
@@ -43,6 +44,6 @@
     "node": ">=18.18.0"
   },
   "dependencies": {
-    "@formo/analytics": "^1.16.19"
+    "@formo/analytics": "^1.19.1"
   }
 }

@@ -1085,17 +1085,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@npm:^1.16.19":
-  version: 1.16.19
-  resolution: "@formo/analytics@npm:1.16.19"
+"@formo/analytics@npm:^1.19.1":
+  version: 1.19.1
+  resolution: "@formo/analytics@npm:1.19.1"
   dependencies:
-    ethereum-cryptography: ^3.1.0
-    fetch-retry: ^6.0.0
-    mipd: ^0.0.7
+    ethereum-cryptography: 3.2.0
+    fetch-retry: 6.0.0
+    mipd: 0.0.7
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
-  checksum: 736583b1596540b90f2ba1c077ce7f328ffd9f4e4221a7e9b049a8942be1f4e06abadbb98a142aa913679884e0544de208bd3629c11b7714a592ed4182aee37d
+  checksum: 53cfeaa6527df6f98f8c1cf37149b7a6ad949a32b72fbad2fef08dd28eb9eb98227e29e2c17a0661d337ffcbc7c9ef079c165091f7421023b59ce14dabab5741
   languageName: node
   linkType: hard
 
@@ -2086,7 +2086,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
-    "@formo/analytics": ^1.16.19
+    "@formo/analytics": ^1.19.1
     "@heroicons/react": ~2.1.5
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ~5.28.6
@@ -6038,19 +6038,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethereum-cryptography@npm:^2.0.0":
-  version: 2.2.1
-  resolution: "ethereum-cryptography@npm:2.2.1"
-  dependencies:
-    "@noble/curves": 1.4.2
-    "@noble/hashes": 1.4.0
-    "@scure/bip32": 1.4.0
-    "@scure/bip39": 1.3.0
-  checksum: 1466e4c417b315a6ac67f95088b769fafac8902b495aada3c6375d827e5a7882f9e0eea5f5451600d2250283d9198b8a3d4d996e374e07a80a324e29136f25c6
-  languageName: node
-  linkType: hard
-
-"ethereum-cryptography@npm:^3.1.0":
+"ethereum-cryptography@npm:3.2.0":
   version: 3.2.0
   resolution: "ethereum-cryptography@npm:3.2.0"
   dependencies:
@@ -6060,6 +6048,18 @@ __metadata:
     "@scure/bip32": 1.7.0
     "@scure/bip39": 1.6.0
   checksum: 00c5cf09d25d796c2982c82faba2ddc13fb5270c71ae97008c40c6ffb3338e9df238f9cef9e86970f2612d4cbef4a93892c9c03b771492065a8da6bb3571f409
+  languageName: node
+  linkType: hard
+
+"ethereum-cryptography@npm:^2.0.0":
+  version: 2.2.1
+  resolution: "ethereum-cryptography@npm:2.2.1"
+  dependencies:
+    "@noble/curves": 1.4.2
+    "@noble/hashes": 1.4.0
+    "@scure/bip32": 1.4.0
+    "@scure/bip39": 1.3.0
+  checksum: 1466e4c417b315a6ac67f95088b769fafac8902b495aada3c6375d827e5a7882f9e0eea5f5451600d2250283d9198b8a3d4d996e374e07a80a324e29136f25c6
   languageName: node
   linkType: hard
 
@@ -6280,7 +6280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fetch-retry@npm:^6.0.0":
+"fetch-retry@npm:6.0.0":
   version: 6.0.0
   resolution: "fetch-retry@npm:6.0.0"
   checksum: a0352f069fd0db8dc16b5a781a02d2d42df1d7438c85c7959f8f83713d266911ba2fce97389cc490cd633fd791187d8498ac624168543a93c68353226cfdadce
@@ -8153,7 +8153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mipd@npm:0.0.7, mipd@npm:^0.0.7":
+"mipd@npm:0.0.7":
   version: 0.0.7
   resolution: "mipd@npm:0.0.7"
   peerDependencies:
@@ -9946,7 +9946,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@formo/analytics": ^1.16.19
+    "@formo/analytics": ^1.19.1
     ansi-regex: ^6.1.0
     husky: ~8.0.3
     lint-staged: ~13.2.2

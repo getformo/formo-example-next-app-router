@@ -1,4 +1,4 @@
-import { AnalyticsProvider } from "./analytics";
+import dynamic from "next/dynamic";
 import "@rainbow-me/rainbowkit/styles.css";
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
@@ -12,6 +12,10 @@ export const metadata = getMetadata({
 
 const WRITE_KEY = process.env.FORMO_ANALYTICS_WRITE_KEY || "";
 
+const AnalyticsProvider = dynamic(() => import("./analytics/AnalyticsProvider"), {
+  ssr: false,
+});
+
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   return (
     <html suppressHydrationWarning>
@@ -19,7 +23,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
         <AnalyticsProvider
           writeKey={WRITE_KEY}
           options={{
-            trackLocalhost: true,
+            tracking: true,
             flushInterval: 1000 * 10, // 10 secs
             logger: {
               enabled: true,
