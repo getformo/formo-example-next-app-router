@@ -1085,9 +1085,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@portal:/Users/yos/sdk::locator=se-2%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@formo/analytics@portal:/Users/yos/sdk::locator=se-2%40workspace%3A."
+"@formo/analytics@npm:^1.16.19":
+  version: 1.19.0
+  resolution: "@formo/analytics@npm:1.19.0"
   dependencies:
     ethereum-cryptography: 3.2.0
     fetch-retry: 6.0.0
@@ -1095,8 +1095,23 @@ __metadata:
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
+  checksum: bcb56ae8548db2bb2be159be9073a8c13122dbc6d08a0ab816a9acf6ee2736d132bfac397c721ee3f204906aeb114e45843cd044023dbe5e6f6abb7d263d28a9
   languageName: node
-  linkType: soft
+  linkType: hard
+
+"@formo/analytics@npm:^1.19.1":
+  version: 1.19.1
+  resolution: "@formo/analytics@npm:1.19.1"
+  dependencies:
+    ethereum-cryptography: 3.2.0
+    fetch-retry: 6.0.0
+    mipd: 0.0.7
+  peerDependencies:
+    "@types/react": ">=16.14.34"
+    react: ">=16.14.0"
+  checksum: 53cfeaa6527df6f98f8c1cf37149b7a6ad949a32b72fbad2fef08dd28eb9eb98227e29e2c17a0661d337ffcbc7c9ef079c165091f7421023b59ce14dabab5741
+  languageName: node
+  linkType: hard
 
 "@heroicons/react@npm:~2.1.5":
   version: 2.1.5
@@ -9945,7 +9960,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@formo/analytics": ^1.19.0
+    "@formo/analytics": ^1.19.1
     ansi-regex: ^6.1.0
     husky: ~8.0.3
     lint-staged: ~13.2.2

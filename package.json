@@ -43,9 +43,6 @@
     "node": ">=18.18.0"
   },
   "dependencies": {
-    "@formo/analytics": "^1.19.0"
-  },
-  "resolutions": {
-    "@formo/analytics": "portal:/Users/yos/sdk"
+    "@formo/analytics": "^1.19.1"
   }
 }
