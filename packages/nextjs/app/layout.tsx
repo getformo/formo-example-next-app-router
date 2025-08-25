@@ -20,7 +20,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
           writeKey={WRITE_KEY}
           options={{
             tracking: true,
-            flushInterval: 1000 * 10, // 10 secs
+            flushInterval: 500 * 10, // 5 secs
             logger: {
               enabled: true,
               levels: ["error", "warn", "info"],
