@@ -8,6 +8,7 @@ import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { SignMessage } from "~~/components/SignMessage";
 import { SignTypedData } from "~~/components/SignTypedData";
+import { TestMultiEventTx } from "~~/components/TestMultiEventTx";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = (): JSX.Element => {
@@ -138,6 +139,10 @@ const Home: NextPage = (): JSX.Element => {
 
             {trackError && <div className="p-4 mt-4 text-red-700 bg-red-100 rounded-md">{trackError}</div>}
           </form>
+        </div>
+
+        <div className="w-7/12 mt-12">
+          <TestMultiEventTx />
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
