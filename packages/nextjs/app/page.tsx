@@ -24,6 +24,11 @@ const Home: NextPage = (): JSX.Element => {
   const [trackResult, setTrackResult] = useState<string | null>(null);
   const [trackError, setTrackError] = useState<string | null>(null);
 
+  // Consent management state
+  const [consentResult, setConsentResult] = useState<string | null>(null);
+  const [consentError, setConsentError] = useState<string | null>(null);
+  const [hasOptedOut, setHasOptedOut] = useState<boolean>(false);
+
   const validateJsonPayload = (payload: string): object | null => {
     try {
       const parsedPayload = JSON.parse(payload);
@@ -57,6 +62,57 @@ const Home: NextPage = (): JSX.Element => {
       }
     }
   };
+
+  // Consent management functions
+  const handleOptOut = () => {
+    try {
+      setConsentResult(null);
+      setConsentError(null);
+      if (analytics) {
+        analytics.optOutTracking();
+        setConsentResult("Successfully opted out of tracking");
+        updateOptOutStatus();
+      } else {
+        setConsentError("Analytics not available");
+      }
+    } catch (err: any) {
+      setConsentError(err.message || "Error opting out");
+    }
+  };
+
+  const handleOptIn = () => {
+    try {
+      setConsentResult(null);
+      setConsentError(null);
+      if (analytics) {
+        analytics.optInTracking();
+        setConsentResult("Successfully opted in to tracking");
+        updateOptOutStatus();
+      } else {
+        setConsentError("Analytics not available");
+      }
+    } catch (err: any) {
+      setConsentError(err.message || "Error opting in");
+    }
+  };
+
+  const updateOptOutStatus = () => {
+    if (analytics) {
+      try {
+        const status = analytics.hasOptedOutTracking();
+        setHasOptedOut(status);
+      } catch (err: any) {
+        setConsentError(err.message || "Error checking opt-out status");
+      }
+    }
+  };
+
+  // Update opt-out status when analytics becomes available
+  useEffect(() => {
+    if (analytics) {
+      updateOptOutStatus();
+    }
+  }, [analytics]);
 
   return (
     <>
@@ -138,6 +194,50 @@ const Home: NextPage = (): JSX.Element => {
 
             {trackError && <div className="p-4 mt-4 text-red-700 bg-red-100 rounded-md">{trackError}</div>}
           </form>
+        </div>
+
+        {/* Consent Management Testing Section */}
+        <div className="w-7/12 mt-12">
+          <div className="flex flex-col gap-4 p-6 border rounded-lg bg-gray-50">
+            <h3 className="text-lg font-semibold text-gray-800">Consent Management</h3>
+            {/* Status Display */}
+            <div className="flex items-center gap-2 p-3 bg-white rounded-md border">
+              <span className="font-medium text-black">Current Status:</span>
+              <span
+                className={`px-2 py-1 rounded text-sm font-medium ${
+                  hasOptedOut ? "bg-red-100 text-red-800" : "bg-green-100 text-green-800"
+                }`}
+              >
+                {hasOptedOut ? "Opted Out" : "Opted In"}
+              </span>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={handleOptOut}
+                className="px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-700 disabled:opacity-50"
+                disabled={!analytics}
+              >
+                Opt Out of Tracking
+              </button>
+
+              <button
+                onClick={handleOptIn}
+                className="px-4 py-2 font-medium text-white bg-green-600 rounded-md hover:bg-green-700 disabled:opacity-50"
+                disabled={!analytics}
+              >
+                Opt In to Tracking
+              </button>
+            </div>
+
+            {/* Results Display */}
+            {consentResult && (
+              <div className="mt-4 p-3 bg-green-100 text-green-800 rounded-md break-all">{consentResult}</div>
+            )}
+
+            {consentError && <div className="p-4 mt-4 text-red-700 bg-red-100 rounded-md">{consentError}</div>}
+          </div>
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
