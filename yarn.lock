@@ -1085,9 +1085,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formo/analytics@npm:^1.20.0":
-  version: 1.20.0
-  resolution: "@formo/analytics@npm:1.20.0"
+"@formo/analytics@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@formo/analytics@npm:1.21.0"
   dependencies:
     ethereum-cryptography: 3.2.0
     fetch-retry: 6.0.0
@@ -1095,7 +1095,7 @@ __metadata:
   peerDependencies:
     "@types/react": ">=16.14.34"
     react: ">=16.14.0"
-  checksum: 41db4d4e3d0399d7334513c8f7eb608f7dc4e4e5cfc7072d8c997fc1599cc0b4a3ffd640aa72b9dd4a61b50acabfaf1f05b3f57c56189076888178ab2104dba8
+  checksum: ba4e80c5508ba3c13f9ca89d2658c351d4f660ad35a92766f7c2e9a27be69921de1430233b1b4f149d5ec4b867f520990351817213ec7a3d4a82a19312b14661
   languageName: node
   linkType: hard
 
@@ -10434,7 +10434,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
-    "@formo/analytics": ^1.20.0
+    "@formo/analytics": ^1.21.0
     ansi-regex: ^6.1.0
     husky: ~8.0.3
     lint-staged: ~13.2.2
