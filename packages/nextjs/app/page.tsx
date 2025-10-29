@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useFormo } from "@formo/analytics";
 import type { NextPage } from "next";
@@ -96,7 +96,7 @@ const Home: NextPage = (): JSX.Element => {
     }
   };
 
-  const updateOptOutStatus = () => {
+  const updateOptOutStatus = useCallback(() => {
     if (analytics) {
       try {
         const status = analytics.hasOptedOutTracking();
@@ -105,14 +105,14 @@ const Home: NextPage = (): JSX.Element => {
         setConsentError(err.message || "Error checking opt-out status");
       }
     }
-  };
+  }, [analytics]);
 
   // Update opt-out status when analytics becomes available
   useEffect(() => {
     if (analytics) {
       updateOptOutStatus();
     }
-  }, [analytics]);
+  }, [analytics, updateOptOutStatus]);
 
   return (
     <>
