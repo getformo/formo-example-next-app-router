@@ -14,6 +14,14 @@ const nextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/events",
+        destination: "https://events.formo.so/v0/raw_events",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

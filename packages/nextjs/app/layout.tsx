@@ -25,6 +25,14 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
               enabled: true,
               levels: ["error", "warn", "info"],
             },
+            autocapture: {
+              connect: true,
+              disconnect: true,
+              signature: true,
+              transaction: true,
+              chain: true,
+            },
+            apiHost: "/api/events",
           }}
         >
           <ThemeProvider enableSystem>
